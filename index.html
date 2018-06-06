@@ -3,35 +3,39 @@
 <head>
 	<meta charset="utf-8">
     <title>Word Guess Game</title>
-    <meta name="viewport" content="width=device-width, install-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-    <link href="style.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 	
-	<div><span id="game">Press any key to get started!</span></div>
+	<div><span id="game">Press any key to get started!</span>
+		<p>Guess this word: <span id="word"></span></p>
+	</div>
 
 <script type ="text/javascript">
 
-//the computer make choice of a word/ give a list of choices to the computer
-//display it like _ _ _ _
-	var options = ["dog", "cat", "horse", "bear"]
+//set the array of words
+	var words = ["dog", "cat", "bear", "cow"];
+//pick a random word
+	var word = words[Math.floor(Math.random()*words.length)];
+//string
+	var str;
+//number of try
+	var count = 9;	
+//empty array to store the guesses	
+	var answerArray = [];
 
-//compare the choice and determine if the letter is present in the word
-
-//user make a choice of a letter
-
-	function test(event) {
-		var hitKey = event.key.toUpperCase();
-		alert(hitKey);
-
-//make comp choose randomly from options		
-		var compChoice = options[Math.floor(Math.random()*options.length)]; 
+	function startGame() {
+		for(var i=0; i<word.length; i++) {
+		answerArray[i] = "_";
 	}
-
-document.onkeyup = test;
+	str = answerArray.join(" ");
+	document.getElementById("word").innerHTML = str;
+	
+	}
 
 </script>
 </body>
