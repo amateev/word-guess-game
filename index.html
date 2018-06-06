@@ -27,7 +27,8 @@
 		var hitKey = event.key.toUpperCase();
 		alert(hitKey);
 
-		var compChoice = options 
+//make comp choose randomly from options		
+		var compChoice = options[Math.floor(Math.random()*options.length)]; 
 	}
 
 document.onkeyup = test;
