@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>Word Guess Game</title>
+    <meta name="viewport" content="width=device-width, install-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+	
+	<div><span id="game">Press any key to get started!</span></div>
+
+<script type ="text/javascript">
+
+//the computer make choice of a word/ give a list of choices to the computer
+//display it like _ _ _ _
+	var options = ["dog", "cat", "horse", "bear"]
+
+//compare the choice and determine if the letter is present in the word
+
+//user make a choice of a letter
+
+	function test(event) {
+		var hitKey = event.key.toUpperCase();
+		alert(hitKey);
+
+		var compChoice = options 
+	}
+
+document.onkeyup = test;
+
+</script>
+</body>
+</html>
