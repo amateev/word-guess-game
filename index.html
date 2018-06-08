@@ -12,30 +12,66 @@
 <body>
 	
 	<div><span id="game">Press any key to get started!</span>
+		<p>wins:<span id = "wins"></span> </p>
 		<p>Guess this word: <span id="word"></span></p>
+		<p>Number of guesses remaining: <span id = "count"></span></p>
+		<p>Letters already guessed<span id = "userChoice"></span></p>
 	</div>
 
 <script type ="text/javascript">
 
 //set the array of words
 	var words = ["dog", "cat", "bear", "cow"];
-//pick a random word
-	var word = words[Math.floor(Math.random()*words.length)];
-//string
-	var str;
-//number of try
-	var count = 9;	
-//empty array to store the guesses	
-	var answerArray = [];
 
-	function startGame() {
-		for(var i=0; i<word.length; i++) {
-		answerArray[i] = "_";
-	}
-	str = answerArray.join(" ");
-	document.getElementById("word").innerHTML = str;
+//number of try, wins
+	var count = 9;	
+	document.querySelector('#count').innerText = count;
+	var wins = 0;
+	document.querySelector('#wins').innerText = wins;
+
+
+	function startGame(event) {
+
+		count = count - 1;
+		document.querySelector('#count').innerText = count;
+		if(count == 0) {
+ 			alert('you can do it');
+			count = 9;	
+		document.querySelector('#count').innerText = count;
+			wins = 0;
+		document.querySelector('#wins').innerText = wins;
+			userChoice = blank; //make it blant to the begigning of the game
+		document.getElementById('userChoice').innerHTML = userChoice;	
+		}
+
+		var userChoice = event.key;
+		document.getElementById('userChoice').innerHTML = userChoice;
+
+// //pick a random word
+// 		var computerOption = words[Math.floor(Math.random()*words.length)];
+
+// 		if(userChoice == computerOption){
+// 			winsCount++
+// 			document.getElementById('wins').innerHTML = winsCount;
+// 			remainCount = reamainCount -1;
+// 			document.getElementById('count').innerHTML = remainCount;
+// 		} 
+
+		
+
+// 		if (reamainCount== 0) {
+// 			reamainCount = 9;
+// 			computerOption
+
+		// }
+
+
+
+
 	
 	}
+
+	document.onkeyup = startGame;
 
 </script>
 </body>
