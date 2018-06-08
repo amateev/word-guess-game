@@ -15,7 +15,7 @@
 		<p>wins:<span id = "wins"></span> </p>
 		<p>Guess this word: <span id="word"></span></p>
 		<p>Number of guesses remaining: <span id = "count"></span></p>
-		<p>Letters already guessed<span id = "userChoice"></span></p>
+		<p>Letters already guessed: <span id = "userChoice"></span></p>
 	</div>
 
 <script type ="text/javascript">
@@ -36,18 +36,25 @@
 
 	function startGame(event) {
 
+//user chooses a letter
+		var userChoice = event.key;
+		document.getElementById('userChoice').innerHTML = userChoice;
+
+
+//reset condition
 		count = count - 1;
 		document.querySelector('#count').innerText = count;
 
-		if(count == 0) {
+		if(count == -1) {
  			//alert('I know you can do it!');
 			count = 9;	
 		document.querySelector('#count').innerText = count;
 			wins = 0;
 		document.querySelector('#wins').innerText = wins;
+		document.querySelector('userChoice').innerText = '&nbsp';
 
-			userChoice; //make it blank to the begigning of the game
-		document.getElementById('userChoice').innerHTML = userChoice;
+			userChoice = "&nbsp;"; //make it blank to the begigning of the game
+		// document.getElementById('userChoice').innerHTML = "alert(hello);";
 
 		computerOption = words[Math.floor(Math.random()*words.length)];	
 		document.querySelector('#word').innerText = computerOption;	
@@ -55,14 +62,9 @@
 
 
 
-//user chooses a letter
-		var userChoice = event.key;
-		document.getElementById('userChoice').innerHTML = userChoice;
 
-//computer picks a random word
-		
-		// computerOption = words[Math.floor(Math.random()*words.length)];	
-		// document.querySelector('#word').innerText = computerOption;	
+
+
 
 		if(userChoice == computerOption){
 			winsCount++
