@@ -22,40 +22,52 @@
 
 //set the array of words
 	var words = ["dog", "cat", "bear", "cow"];
+	computerOption = words[Math.floor(Math.random()*words.length)];	
+	document.querySelector('#word').innerText = computerOption;	
 
 //number of try, wins
 	var count = 9;	
 	document.querySelector('#count').innerText = count;
 	var wins = 0;
 	document.querySelector('#wins').innerText = wins;
+//empty array to store the guesses	
+	var wordArray = [];
 
 
 	function startGame(event) {
 
 		count = count - 1;
 		document.querySelector('#count').innerText = count;
+
 		if(count == 0) {
- 			alert('you can do it');
+ 			//alert('I know you can do it!');
 			count = 9;	
 		document.querySelector('#count').innerText = count;
 			wins = 0;
 		document.querySelector('#wins').innerText = wins;
-			userChoice = blank; //make it blant to the begigning of the game
-		document.getElementById('userChoice').innerHTML = userChoice;	
-		}
 
+			userChoice; //make it blank to the begigning of the game
+		document.getElementById('userChoice').innerHTML = userChoice;
+
+		computerOption = words[Math.floor(Math.random()*words.length)];	
+		document.querySelector('#word').innerText = computerOption;	
+		} 
+
+
+
+//user chooses a letter
 		var userChoice = event.key;
 		document.getElementById('userChoice').innerHTML = userChoice;
 
-// //pick a random word
-// 		var computerOption = words[Math.floor(Math.random()*words.length)];
+//computer picks a random word
+		
+		// computerOption = words[Math.floor(Math.random()*words.length)];	
+		// document.querySelector('#word').innerText = computerOption;	
 
-// 		if(userChoice == computerOption){
-// 			winsCount++
-// 			document.getElementById('wins').innerHTML = winsCount;
-// 			remainCount = reamainCount -1;
-// 			document.getElementById('count').innerHTML = remainCount;
-// 		} 
+		if(userChoice == computerOption){
+			winsCount++
+			document.getElementById('wins').innerHTML = winsCount;
+		} 
 
 		
 
