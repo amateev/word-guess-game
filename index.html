@@ -4,10 +4,12 @@
 	<meta charset="utf-8">
     <title>Word Guess Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-   <!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-    <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+ 	<!-- Reset -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <!-- css -->
+    <link rel="stylesheet" href = "assets/css/style.css">
 </head>
 <body>
 	
@@ -18,75 +20,7 @@
 		<p>Letters already guessed: <span id = "userChoice"></span></p>
 	</div>
 
-<script type ="text/javascript">
 
-//set the array of words
-	var words = ["dog", "cat", "bear", "cow"];
-	computerOption = words[Math.floor(Math.random()*words.length)];	
-	//document.querySelector('#word').innerText = computerOption;	
-
-//number of try, wins
-	var count = 9;	
-	document.querySelector('#count').innerText = count;
-	var wins = 0;
-	document.querySelector('#wins').innerText = wins;
-//empty array to store the guesses	
-	var wordArray = [];
-	var str;
-
-
-	function startGame(event) {
-
-//user chooses a letter
-		var userChoice = event.key;
-		document.querySelector('#userChoice').innerText = userChoice;
-
-		for(var i=0; i<computerOption.length; i++) {
-			wordArray[i] = "_";
-			str = wordArray.join(" ");
-			document.querySelector('#word').innerHTML = str;
-		}
-
-
-//reset condition
-		count = count - 1;
-		document.querySelector('#count').innerText = count;
-
-		if(count == -1) {
- 			//alert('I know you can do it!');
-			count = 9;	
-		document.querySelector('#count').innerText = count;
-			wins = 0;
-		document.querySelector('#wins').innerText = wins;
-		//document.querySelector('userChoice').innerText = '&nbsp';
-
-			userChoice = "&nbsp;"; //make it blank to the begigning of the game
-		// document.getElementById('userChoice').innerHTML = "alert(hello);";
-
-		// computerOption = words[Math.floor(Math.random()*words.length)];	
-		// document.querySelector('#word').innerText = computerOption;	
-		} 
-
-
-
-
-
-
-
-		if(userChoice == computerOption){
-			winsCount++
-			document.getElementById('wins').innerHTML = winsCount;
-		} 
-
-
-
-
-
-	
-	}
-
-	document.onkeyup = startGame;
-
-</script>
+<script src="assets/javascript/games.js"></script>
 </body>
 </html>
