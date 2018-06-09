@@ -6,87 +6,65 @@
 
 
 
+	var isGameUp = false
 
 	var words = ["dog", "cat", "bear", "cow"];
+	var word = "";
 		
-	var count = 10;	
+	const startingGuessCountdown = 3;
+	var guessCountdown;
 	var wins;
 	
 	var wordArray = [];
-	var str;
+	var wordArrayText;
+	var userChoice = [];
+	var userChoiceText = "";
+
+	function wordGame(event) {
+		if (!isGameUp) {
+			// generate a word
+			word = words[Math.floor(Math.random()*words.length)];
 
 
-	function startGame(event) {
+			// generate word template
+			wordArrayText = "";
+			for(var i = 0; i < word.length; i++) {
+				wordArray[i] = "_";
+			}
+			wordArrayText = wordArray.join(" ");
 
-//trigger the game
-		
-		var userChoice = event.key;
-		document.querySelector('#userChoice').innerText = userChoice;
+			guessCountdown = startingGuessCountdown;
+			userChoice = [];
+			userChoiceText = "";
+			wins = 0;
 
-		var wins = 0;
-		document.querySelector('#wins').innerText = wins;
-		
-		computerOption = words[Math.floor(Math.random()*words.length)];
-		console.log(computerOption);
+			refreshGameStats();
 
-		for(var i=0; i<computerOption.length; i++) {
+			isGameUp = true;
 
-			wordArray[i] = "_";
-			str = wordArray.join(" ");
-			document.querySelector('#word').innerHTML = str;
+			return;
 		}
 
-if(userChoice.indexOf(computerOption) > -1) {
-	console.log();
-}
+		// Game is up
 
- // if(userChoice.length > 0) {
-	// for (var i=0; i <= 9; i++){
-	// 	wordArray[i] = userChoice;
-	// }
+  		j = startingGuessCountdown - guessCountdown;
+		userChoice[j] = event.key;
+		userChoiceText = userChoice.join(", ");
 
-	// }
+		guessCountdown--;
+		refreshGameStats();
 
-	
-
-
-
-//reset condition
-		count = count - 1;
-		document.querySelector('#count').innerText = count;
-
-		if(count == -1) {
- 			//alert('I know you can do it!');
-			count = 9;	
-		document.querySelector('#count').innerText = count;
-			wins = 0;
-		document.querySelector('#wins').innerText = wins;
-		//document.querySelector('userChoice').innerText = '&nbsp';
-
-			userChoice = "&nbsp;"; //make it blank to the begigning of the game
-		// document.getElementById('userChoice').innerHTML = "alert(hello);";
-
-		// computerOption = words[Math.floor(Math.random()*words.length)];	
-		// document.querySelector('#word').innerText = computerOption;	
-		} 
-
-
-
-
-
-
-
-		if(userChoice == computerOption){
-			winsCount++
-			document.getElementById('wins').innerHTML = winsCount;
-		} 
-
-
-
-
-
-	
+		if (guessCountdown == 0) {
+			isGameUp = false;
+		}
 	}
 
-	document.onkeyup = startGame;
+	function refreshGameStats(){
+		document.querySelector('#word').innerHTML = wordArrayText;
+		document.querySelector('#count').innerText = guessCountdown;
+		document.querySelector('#userChoice').innerText = userChoiceText;
+		document.querySelector('#wins').innerText = wins;
+	}
+
+	document.onkeyup = wordGame;
 
