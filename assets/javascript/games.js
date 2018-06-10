@@ -11,7 +11,7 @@
 	var words = ["dog", "cat", "bear", "cow"];
 	var word = "";
 		
-	const startingGuessCountdown = 3;
+	const startingGuessCountdown = 9;
 	var guessCountdown;
 	var wins;
 	
@@ -34,6 +34,7 @@
 			wordArrayText = wordArray.join(" ");
 
 			guessCountdown = startingGuessCountdown;
+
 			userChoice = [];
 			userChoiceText = "";
 			wins = 0;
