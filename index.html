@@ -12,14 +12,17 @@
     <link rel="stylesheet" href = "assets/css/style.css">
 </head>
 <body>
+	<header><h1>Word Guess Game</h1></header>
 	
-	<div><span id="game">Press any key to get started!</span>
-		<p>wins: <span id = "wins"></span> </p>
-		<p>Guess this word: <span id="word"></span></p>
-		<p>Number of guesses remaining: <span id = "count"></span></p>
-		<p>Letters already guessed: <span id = "userChoice"></span></p>
+	<div class = "container"><span id="game">Press any key to get started!</span>
+		<p>Wins: <span id = "wins"></span> </p>
+		<p>Guess this word: <br><br><span id="word"></span></p>
+		<p>Number of guesses remaining: <br><br> <span id = "count"></span></p>
+		<p>Letters already guessed: <br><br><span id = "userChoice"></span></p>
 	</div>
-
+<div id = "gifimage">
+	<img src="http://i.stack.imgur.com/SBv4T.gif" title="this slowpoke moves" />
+</div>
 
 <script src="assets/javascript/games.js"></script>
 </body>

@@ -47,6 +47,8 @@
 
 		// Game is up
 
+		
+
   		j = startingGuessCountdown - guessCountdown;
 		userChoice[j] = event.key;
 		userChoiceText = userChoice.join(", ");
